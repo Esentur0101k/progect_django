@@ -1,0 +1,63 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog</title>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    </head>
+    <body style="background-image: url('https://cdn-1.aki.kg/st_gallery/87/1306987.913839c60852dbbc4adaf2bcd9b7b8cb.jpg'); background-size: cover; background-attachment: fixed;">
+
+
+
+
+    <div class="menu">
+        <h1>MENU</h1>
+
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="http://127.0.0.1:8000/create/">createCountries</a></li>
+      <li><a href="http://127.0.0.1:8000/area/">Area</a></li>
+      <li><a href="#contact">Regions</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+
+    </div>
+
+
+
+
+
+        {% for blog in blogs %}
+        <div class="blog-wrapper">
+            <div class="blog-card">
+                <div class="card-img">
+                    <h2>{{ blog.title }}</h2>
+                </div>
+
+                <div class="card-details">
+                    <span><i class="fa fa-calendar"></i> {{ blog.created_at }}</span>
+                    <span><i class="fa fa-heart"></i> {{ blog.likes }}</span>
+                </div>
+
+                <div class="card-text">
+                    <p>{{ blog.body }}</p>
+                </div>
+
+                <div class="read-more">
+                    <a href="http://127.0.0.1:8000/update/{{blog.pk}}">обновить</a>
+                </div>
+
+                      <div class="read-more">
+                    <a href="http://127.0.0.1:8000/delete/{{blog.pk}}">удалить</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </body>
+    </html>
+
+
