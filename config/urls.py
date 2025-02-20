@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("main.urls")),
     path("blog/",include("blog.urls")),
-    path('',include('register.urls'))
+    path('register/',include('register.urls'))
 
 ]
