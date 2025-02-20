@@ -42,7 +42,7 @@ class RegisterView(TemplateView):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             form.save()
-            return redirect("http://127.0.0.1:8000/blog/")
+            return redirect("https://progect-django.onrender.com/blog/")
 
         return HttpResponse('register error' + str(form.errors))
 
@@ -71,7 +71,7 @@ class LoginView(TemplateView):
 
 
         if user.check_password(password):
-            return redirect('http://127.0.0.1:8000/blog/')
+            return redirect('https://progect-django.onrender.com/blog/')
 
 
         else:
