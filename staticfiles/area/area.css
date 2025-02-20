@@ -1,0 +1,151 @@
+
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto|Slabo+27px);
+@import 'bourbon';
+
+body{
+  background:#ececec;
+}
+
+h1{
+  font-size:32px;
+  margin-top:30px;
+  font-family: 'Oswald', sans-serif;
+  text-align:center;
+}
+.blog-wrapper{
+  padding:15px;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  flex-wrap:wrap;
+  .blog-card{
+    @include transition(.3s);
+    max-width:300px;
+    margin:15px;
+    background:#fff;
+    border:1px solid #CB6074;
+    text-align:center;
+    cursor:pointer;
+    &:hover{
+      box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
+      .card-img{
+        img{
+          opacity:0.8;
+        }
+      }
+    }
+    .card-img{
+      position:relative;
+      text-align:center;
+      background:#1b6317;
+      img{
+        @include transition(.3s);
+        max-height:180px;
+        width:100%;
+        border-bottom:4px solid #40e609;
+      }
+      &:before{
+        content:'';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        margin-left: -10px;
+        width: 0;
+        height: 0;
+        border-top: solid 10px #CB6074;
+        border-left: solid 10px transparent;
+        border-right: solid 10px transparent;
+      }
+      h1{
+        position:absolute;
+        margin:0;
+        font-size:42px;
+        bottom:15px;
+        width:100%;
+        color:#fff;
+        font-family: 'Slabo 27px', serif;
+      }
+    }
+    .card-details{
+      margin-top:30px;
+      font-family: 'Roboto', sans-serif;
+      color:#3C3C3C;
+      span{
+        padding:0 30px;
+        i{
+          margin-right:5px;
+        }
+
+      }
+    }
+    .card-text{
+      padding:30px 15px;
+      font-family: 'Roboto', sans-serif;
+
+    }
+    .read-more{
+      @include transition(.3s);
+      display:inline-block;
+      width:auto;
+      text-align:center;
+      text-transform:uppercase;
+      background:#CB6074;
+      color:#fff;
+      padding:15px;
+      margin-bottom:30px;
+      font-family: 'Oswald', sans-serif;
+      &:hover{
+        background: darken(#CB6074,20%);
+      }
+    }
+  }
+}
+
+
+
+.card-img h2 {
+    color: white;
+    font-size: 50px;
+}
+
+.blog-card:hover {
+  color:#49b009;
+}
+
+
+
+
+.menu{
+    transform: translateY(100px);
+    margin-right:80%;
+     margin-top:50px;
+     width:200px;
+
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
