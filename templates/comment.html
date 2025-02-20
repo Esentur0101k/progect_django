@@ -1,0 +1,55 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>cooment</title>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    </head>
+    <body>
+
+
+
+<form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">отправить</button>
+</form>
+
+
+
+
+
+
+        {% for comment in comments %}
+        <div class="blog-wrapper">
+            <div class="blog-card">
+                <div class="card-img">
+                    <h2>{{ comment.author}}</h2>
+                </div>
+
+                <div class="card-details">
+                    <span><i class="fa fa-calendar"></i> {{ blog.created_at }}</span>
+                    <span><i class="fa fa-heart"></i> {{ blog.likes }}</span>
+                </div>
+
+                <div class="card-text">
+                    <p>{{ comment.text }}</p>
+                </div>
+
+
+
+               <div class="read-more">
+                <a href="http://127.0.0.1:8000/delete_comment/{{comment.id}}">удалить</a>
+               </div>
+
+
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </body>
+    </html>
+
+

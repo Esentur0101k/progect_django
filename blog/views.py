@@ -1,14 +1,17 @@
+from wsgiref.util import request_uri
+
 from django.shortcuts import render,redirect,HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from.models import Blog,Area
+from.models import Blog,Area,Comment
 from .forms import (
     Formblog,
     UpdateBlogForm,
     UpdateAreaForm,
-    FormArea
+    FormArea,
+    CreateCommentForm
 
 
- )
+)
 # Create your views here.
 
 def blog(request):
@@ -136,6 +139,38 @@ def deleteArea(request,id):
 
 
 
+def commentView(request,id):
+    if request.method=="POST":
+        author = request.POST['author']
+        text = request.POST['text']
+        blog = Blog.objects.get(id=id)
+        Comment.objects.create(
+
+            blog=blog,
+            author=author,
+            text=text
+
+
+        )
+
+    blog = Blog.objects.get(id=id)
+    comments = Comment.objects.filter(blog=blog)
+    form = CreateCommentForm
+
+    context = {
+        'id':id,
+        'form':form,
+
+        'comments':comments
+    }
+    return render(request, 'comment.html',context)
 
 
 
+
+def deleteComment(request, id):
+    comment = Comment.objects.get(id=id)
+
+    blog_id = comment.blog.id
+    comment.delete()
+    return redirect('comment_view', id=blog_id)

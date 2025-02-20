@@ -16,7 +16,7 @@
 
     <ul>
       <li><a class="active" href="#home">Home</a></li>
-      <li><a href="http://127.0.0.1:8000/create/">createCountries</a></li>
+      <li><a href="http://127.0.0.1:8000/blog/create/">createCountries</a></li>
       <li><a href="http://127.0.0.1:8000/area/">Area</a></li>
       <li><a href="#contact">Regions</a></li>
       <li><a href="#about">About</a></li>
@@ -45,12 +45,19 @@
                 </div>
 
                 <div class="read-more">
-                    <a href="http://127.0.0.1:8000/update/{{blog.pk}}">обновить</a>
+                    <a href="http://127.0.0.1:8000/blog/update/{{blog.pk}}">обновить</a>
                 </div>
 
-                      <div class="read-more">
-                    <a href="http://127.0.0.1:8000/delete/{{blog.pk}}">удалить</a>
+                <div class="read-more">
+                    <a href="http://127.0.0.1:8000/blog/delete/{{blog.pk}}">удалить</a>
                 </div>
+
+
+                  <div class="read-more">
+                    <a href="http://127.0.0.1:8000/blog/comment/{{blog.pk}}/">comment</a>
+                  </div>
+
+
 
             </div>
         </div>

@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+
 import os
+import dj_database_url
+
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -42,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'blog'
+    'blog',
+    'register',
 ]
 
 MIDDLEWARE = [
@@ -73,18 +77,24 @@ TEMPLATES = [
     },
 ]
 
+DATABASES = {
+   'default': dj_database_url.parse('postgresql://djangowebsite_vf8b_user:WfLmzSMg3Kz95hVHtaOfhDKfVjcj8bqc@dpg-cuqsjvbv2p9s73fj3j7g-a.oregon-postgres.render.com/djangowebsite_vf8b')
+
+
+
+}
+
+
+
+
+
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
+AUTH_USER_MODEL = 'register.User'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation

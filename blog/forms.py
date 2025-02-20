@@ -1,6 +1,6 @@
 
 from django import forms
-from .models import Blog,Area
+from .models import Blog,Area,Comment
 
 class Formblog(forms.ModelForm):
     class Meta:
@@ -29,5 +29,10 @@ class UpdateAreaForm(forms.ModelForm):
 
 
 
+class CreateCommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['author','text']
 
 
